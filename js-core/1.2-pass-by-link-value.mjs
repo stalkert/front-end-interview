@@ -28,7 +28,7 @@ function passByLink() {
   customer.name = 'Иван';
   console.log('customer: ', customer);
   console.log('defaultCustomer: ', defaultCustomer);
+
+  console.log('------------------------------------');
 }
 passByLink();
-
-export { passByValue, passByLink };

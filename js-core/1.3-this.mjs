@@ -53,7 +53,7 @@ const shopList = {
     console.log('------------------------------');
   }
   // show() {
-  //   shopList === this ? console.log('1.3.3 this в стрелочных функциях') : '';
+  //   shopList === this ? console.log('1.3.4 this в стрелочных функциях') : '';
   //
   //   this.items.forEach( (item) => {
   //     console.log(`${this && this.counter++}. ${item}`)

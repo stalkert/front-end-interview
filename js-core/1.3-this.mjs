@@ -4,15 +4,13 @@ const student = {
   firstName: 'Том',
   lastName: 'Dance',
   age: 19,
-  fullName() {
-    student === this
-      ? console.log('1.3.1 this в методе (функции) объекта')
-      : '';
-    console.log(`${this.firstName} ${this.lastName}`);
+  fullName(title = '') {
+    if (title) console.log(title);
+    console.log(`${this && this.firstName} ${this && this.lastName}`);
   }
 };
 
-student.fullName();
+student.fullName('1.3.1 this в методе (функции) объекта');
 
 const teacher = {
   firstName: 'Kate',
@@ -20,6 +18,10 @@ const teacher = {
   fullName: student.fullName
 };
 teacher.fullName();
+
+// this в функции без объекта
+const foo = student.fullName;
+foo('1.3.2 this в функции без объекта');
 
 // this в функции конструкторе (при создании экземпляра класса).
 function Animal(name, type) {
@@ -34,7 +36,7 @@ function Animal(name, type) {
 
 const cat = new Animal('Мурзик', 'cat');
 
-console.log('1.3.2 this в функции конструкторе (при создании экземпляра класса)')
+console.log('1.3.3 this в функции конструкторе (при создании экземпляра класса)')
 console.log(cat);
 
 // this в стрелочных функциях
@@ -43,20 +45,20 @@ console.log(cat);
 const shopList = {
   counter: 1,
   items: ['apple', 'potato', 'milk'],
-  // show() {
-  //   console.log('1.3.3 this в стрелочных функциях');
-  //   this.items.forEach( function (item) {
-  //     console.log(`${this && this.counter++}. ${item}`);
-  //   })
-  //   console.log('------------------------------');
-  // }
   show() {
-    shopList === this ? console.log('1.3.3 this в стрелочных функциях') : '';
-
-    this.items.forEach( (item) => {
-      console.log(`${this && this.counter++}. ${item}`)
-    });
+    console.log('1.3.4 this в стрелочных функциях');
+    this.items.forEach( function (item) {
+      console.log(`${this && this.counter++}. ${item}`);
+    })
+    console.log('------------------------------');
   }
+  // show() {
+  //   shopList === this ? console.log('1.3.3 this в стрелочных функциях') : '';
+  //
+  //   this.items.forEach( (item) => {
+  //     console.log(`${this && this.counter++}. ${item}`)
+  //   });
+  // }
 };
 shopList.show();
 

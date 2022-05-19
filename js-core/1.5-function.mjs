@@ -10,7 +10,7 @@
         console.log(`Всего передано ${rest.length + 1} аргументов`);
       }
 
-      checkHoisting(undefined, 1,2,3,4);
+      checkHoisting(undefined);
 
   // Function expression
     // Function expression можно использовать только после объявления
@@ -69,5 +69,12 @@
         }catch(error){
           console.log(error.toString().slice(0,85));
         }
+
+        console.log('1.5.6 Функции высшего порядка');
+        function highOrderFunction(func) {
+            func();
+        }
+        highOrderFunction(() => console.log('Работает!'));
+
 console.log('--------------------------------------------');
 
